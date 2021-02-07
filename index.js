@@ -7,13 +7,12 @@ searchBtn.addEventListener('click', function () {
 
 const getMealData = mealItemCheck => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealItemCheck.value}`;
-
     fetch(url)
         .then(response => response.json())
         .then(data => {
             const mealsDiv = document.getElementById("singleFoodItem");
-            for (let i = 0; i < data.meals.length; i++) {
-                const meal = data.meals[i];
+            const dataMeals = data.meals;
+            dataMeals.forEach(meal => {
                 const mealsListDiv = document.getElementById('singleFoodItem');
                 const mealDiv = document.createElement("div");
                 mealDiv.className = "meal";
@@ -25,11 +24,9 @@ const getMealData = mealItemCheck => {
                 `
                 mealDiv.innerHTML = mealDetailsInfo;
                 mealsDiv.appendChild(mealDiv);
-
-            };
-
+            });
         })
-}
+    }
 
 const displaySingleFoodDetails = mealId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
@@ -50,6 +47,6 @@ const displaySingleFoodDetails = mealId => {
                     <li> ${data.meals[0].strIngredient5} </li>
                     <li> ${data.meals[0].strIngredient6} </li>
                 </ul>
-            </div>`
+           </div>`
         })
-}
+    }
