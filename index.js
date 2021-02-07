@@ -26,8 +26,25 @@ const getMealData = mealItemCheck => {
                 mealsDiv.appendChild(mealDiv);
             });
         })
+        .catch(error=> {
+            displayError();
+        })
     }
-
+function displayError(){
+    if(mealItemCheck.innerHTML==""|| mealItemCheck.value==" "){
+        const errorDiv = document.getElementById("allFoodDetails");
+        const errorDivShow = document.createElement("div");
+        errorDivShow.className ="error";
+        const errorDivShowInfo =` 
+        <div class="col-md-6 justify-content-around w-small" id="errorDiv">
+            <span class='text-center'> Food name Is not found in the menu card! 
+            Please write Down valid food name.</span> 
+        </div> 
+        `
+        errorDivShow.innerHTML = errorDivShowInfo;
+        errorDiv.appendChild(errorDivShow);
+    }
+}
 const displaySingleFoodDetails = mealId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
     fetch(url)
@@ -36,9 +53,10 @@ const displaySingleFoodDetails = mealId => {
             console.log(data);
             const mealDetails = document.getElementById("allFoodDetails");
             mealDetails.innerHTML = `
-            <div>
+            <div id="hideSingleMillsDetails">
                 <img class="img-fluid"  src="${data.meals[0].strMealThumb}" alt="meal-image">
                 <h4 class='text-center'>${data.meals[0].strMeal}</h4>
+                <h4 class='text-center'>Ingredients</h4>
                 <ul class='text-center'>
                     <li> ${data.meals[0].strIngredient1} </li>
                     <li> ${data.meals[0].strIngredient2} </li>

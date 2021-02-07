@@ -55,11 +55,7 @@
     text-align: center;
 }
 
-#allFoodDetails ul li {
-    list-style-type: none;
-    align-items: left;
 
-}
 
 #allFoodDetails img {
     width: 50%;
@@ -68,4 +64,29 @@
     border-radius: 5px;
     box-shadow: 5px 5px 10px 5px gray;
 
+}
+#hideSingleMillsDetails ul {
+    justify-content: space-between;
+}
+#hideSingleMillsDetails > ul > li{
+    
+    list-style-type: none;
+}
+.error{
+    width: 500px;
+    text-shadow: 2px 5px 3px rgba(245, 245, 245, 0.438);
+    border-radius: 5px;
+    color:  rgba(17, 2, 2, 0.699);
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.808);
+   
+    margin: 0px 400px;
+    
+
+}
+#errorDiv{
+    width: 100%;
+    
 }
