@@ -53,12 +53,10 @@
     padding: 5px;
     color: darkslategray;
     text-align: center;
+   
 }
-
-
-
 #allFoodDetails img {
-    width: 50%;
+    width: 60%;
     margin: 0;
     padding: 0;
     border-radius: 5px;
@@ -85,8 +83,4 @@
     margin: 0px 400px;
     
 
-}
-#errorDiv{
-    width: 100%;
-    
 }

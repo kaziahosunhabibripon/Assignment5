@@ -31,8 +31,9 @@ const getMealData = mealItemCheck => {
         })
     }
 function displayError(){
-    if(mealItemCheck.innerHTML===""|| mealItemCheck.value===" "){
-        const errorDiv = document.getElementById("errorShowDiv");
+       document.getElementById("singleFoodItem").innerHTML="";
+       document.getElementById("allFoodDetails").innerHTML=" ";
+        const errorDiv = document.getElementById("singleFoodItem");
         const errorDivShow = document.createElement("div");
         errorDivShow.className ="error";
         const errorDivShowInfo =` 
@@ -43,9 +44,7 @@ function displayError(){
         errorDiv.appendChild(errorDivShow);
        
     }
-   
-   
-}
+
 const displaySingleFoodDetails = mealId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
     fetch(url)
@@ -55,7 +54,7 @@ const displaySingleFoodDetails = mealId => {
             const mealDetails = document.getElementById("allFoodDetails");
             mealDetails.innerHTML = `
             <div id="hideSingleMillsDetails">
-                <img class="img-fluid"  src="${data.meals[0].strMealThumb}" alt="meal-image">
+                <img class="img-fluid" src="${data.meals[0].strMealThumb}" alt="meal-image">
                 <h4 class='text-center'>${data.meals[0].strMeal}</h4>
                 <h4 class='text-center'>Ingredients</h4>
                 <ul class='text-center'>
