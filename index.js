@@ -26,24 +26,25 @@ const getMealData = mealItemCheck => {
                 mealsDiv.appendChild(mealDiv);
             });
         })
-        .catch(error=> {
-            displayError();
+        .catch(error=> {displayError();
+            
         })
     }
 function displayError(){
-    if(mealItemCheck.innerHTML==""|| mealItemCheck.value==" "){
-        const errorDiv = document.getElementById("allFoodDetails");
+    if(mealItemCheck.innerHTML===""|| mealItemCheck.value===" "){
+        const errorDiv = document.getElementById("errorShowDiv");
         const errorDivShow = document.createElement("div");
         errorDivShow.className ="error";
         const errorDivShowInfo =` 
-        <div class="col-md-6 justify-content-around w-small" id="errorDiv">
             <span class='text-center'> Food name Is not found in the menu card! 
             Please write Down valid food name.</span> 
-        </div> 
         `
         errorDivShow.innerHTML = errorDivShowInfo;
         errorDiv.appendChild(errorDivShow);
+       
     }
+   
+   
 }
 const displaySingleFoodDetails = mealId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
